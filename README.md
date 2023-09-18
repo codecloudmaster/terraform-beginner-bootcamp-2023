@@ -1,6 +1,6 @@
 # Terraform Beginner Bootcamp 2023
 
-## Semantic Versioning 2.0.0
+## Semantic Versioning 2.0.0 :mage:
 
 ### Summary
 
