@@ -8,7 +8,7 @@ tasks:
     env:
       AWS_CLI_AUTO_PROMPT: on-partial
     before: |
-      source ./bin/set_tf_alias
+      source ./bin/set_tf_alias.sh
       source ./bin/install_aws_cli.sh
 vscode:
   extensions:
