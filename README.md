@@ -258,7 +258,7 @@ Provide the following code (replace your token in the file):
 We have automated this workaround with the following bash script [bin/generate_tfrc_credentials](bin/generate_tfrc_credentials)
 
 When we run terraform plan in gitpod we can see the error
-'''
+```
 No valid credential sources found
 with provider["registry.terraform.io/hashicorp/aws"]
 on main.tf line 31, in provider "aws":
@@ -267,7 +267,7 @@ provider "aws" {
 
 Please see https://registry.terraform.io/providers/hashicorp/aws
 for more information about providing credentials.
-'''
+```
 But when we run aws s3 ls for example we receive a list of buckets as expected. 
 
 To resolve an error we need to add our AWS_DEFAULT_REGION, AWS_SECRET_ACCESS_KEY, and AWS_ACCESS_KEY_ID as sensitive env vars in Terraform cloud account. Here is the screenshot of how to do this.
