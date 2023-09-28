@@ -48,3 +48,63 @@ This is the default file to load in terraform variables in blunk
 
 - TODO: document which terraform variables takes presendence.
 
+## What happens if we lose our state file?
+
+If you lose your statefile, you most likley have to tear down all your cloud infrastructure manually.
+
+You can use terraform import but it won't for all cloud resources. You need check the terraform providers documentation for which resources support import.
+
+### Fix Missing Resources with Terraform Import
+
+`terraform import aws_s3_bucket.bucket bucket-name`
+
+[Terraform Import](https://developer.hashicorp.com/terraform/cli/import)
+[AWS S3 Bucket Import](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#import)
+
+`Note`: During changing configuration from random bucket name to static, we lose our s3 bucket created by random provider settings. 
+And we needed ro run Terraform apply twice: after first we destroyed random provider settings, and then to create our new bucket, even if we run terraform import before this commands. Maybe we needed to do remove first it from terraform state.
+
+### Remove a Resource from Terraform State
+
+To remove a resource from Terraform state, follow these steps:
+
+#### Step 1: Identify the Resource Address
+
+First, identify the address of the resource in your Terraform state. You can list the resources and their addresses using the following command:
+
+```bash
+terraform state list
+```
+#### Step 2: Remove the Resource from Terraform State
+
+Use the terraform state rm command to remove the identified resource from Terraform state. Replace `<RESOURCE_ADDRESS>` with the actual address of the resource.
+
+```bash
+terraform state rm <RESOURCE_ADDRESS>
+```
+#### Step 3: Update Terraform Configuration
+
+After removing the resource from the state, update your Terraform configuration to reflect the removal. This involves removing the corresponding resource block from your configuration file.
+
+#### Step 4: Apply the Changes
+
+Run terraform apply to apply the changes to your infrastructure.
+
+```bash
+terraform apply
+```
+
+This will update your infrastructure to reflect the changes in your Terraform configuration.
+
+Note: Removing a resource from the state does not automatically destroy the resource in the cloud provider. It only removes the resource from Terraform's tracking. If the resource still exists in the cloud provider, Terraform will not manage it.
+
+Always exercise caution when making changes to your Terraform state and configurations, especially when dealing with live infrastructure.
+
+
+
+### Fix Manual Configuration
+
+If someone goes and delete or modifies cloud resource manually through ClickOps. 
+
+If we run Terraform plan is with attempt to put our infrstraucture back into the expected state fixing Configuration Drift
+
