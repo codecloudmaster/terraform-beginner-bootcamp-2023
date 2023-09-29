@@ -146,7 +146,8 @@ module "terrahouse_aws" {
 ### Module Refactoring.
 
 When we vreate a module Terraform compares previous state with new configuration, correlating by each module or resource's unique address. Therefore by default Terraform understands moving or renaming an object as an intent to destroy the object at the old address and to create a new object at the new address.
-To prevent this we need to tell TF that we moved our resource to the module
+To prevent this we need to tell TF that we moved our resource to the module.
+
 
 ```tf
 moved {
