@@ -22,3 +22,14 @@ terraform {
 provider "aws" {
   # Configuration options
 }
+
+module "terrahouse_aws" {
+  source = "./modules/terrahouse_aws"
+
+  s3_bucket_name = var.s3_bucket_name
+  user_uuid = var.user_uuid
+    
+}
+
+
+

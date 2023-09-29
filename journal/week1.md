@@ -108,3 +108,51 @@ If someone goes and delete or modifies cloud resource manually through ClickOps.
 
 If we run Terraform plan is with attempt to put our infrstraucture back into the expected state fixing Configuration Drift
 
+## Terraform Modules
+
+### Terraform Module Structure
+
+It is recommend to place modules in a `modules` directory when locally developing modules but you can name it whatever you like.
+
+### Passing Input Variables
+
+We can pass input variables to our module.
+The module has to declare the terraform variables in its own variables.tf
+We need to put it on root module along with providers.
+
+```tf
+module "terrahouse_aws" {
+  source = "./modules/terrahouse_aws"
+  user_uuid = var.user_uuid
+  bucket_name = var.bucket_name
+}
+```
+
+### Modules Sources
+
+Using the source we can import the module from various places eg:
+- locally
+- Github
+- Terraform Registry
+
+```tf
+module "terrahouse_aws" {
+  source = "./modules/terrahouse_aws"
+}
+```
+
+[Modules Sources](https://developer.hashicorp.com/terraform/language/modules/sources)
+
+### Module Refactoring.
+
+When we vreate a module Terraform compares previous state with new configuration, correlating by each module or resource's unique address. Therefore by default Terraform understands moving or renaming an object as an intent to destroy the object at the old address and to create a new object at the new address.
+To prevent this we need to tell TF that we moved our resource to the module
+
+```tf
+moved {
+  from = aws_s3_bucket.website_bucket
+  to   = module.terrahouse_aws.aws_s3_bucket.website_bucket
+}
+```
+
+[Modules Refactoring](https://developer.hashicorp.com/terraform/language/modules/develop/refactoring)
