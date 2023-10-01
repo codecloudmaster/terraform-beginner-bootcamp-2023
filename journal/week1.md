@@ -108,6 +108,16 @@ If someone goes and delete or modifies cloud resource manually through ClickOps.
 
 If we run Terraform plan is with attempt to put our infrstraucture back into the expected state fixing Configuration Drift
 
+## Fix using Terraform Refresh
+A common error scenario that can prompt Terraform to refresh the contents of your state file is mistakenly modifying your credentials or provider configuration.
+
+Run terraform plan -refresh-only to review how Terraform would update your state file.
+
+```sh
+terraform plan -refresh-only
+```
+  
+
 ## Terraform Modules
 
 ### Terraform Module Structure
