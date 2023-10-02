@@ -28,7 +28,8 @@ module "terrahouse_aws" {
 
   s3_bucket_name = var.s3_bucket_name
   user_uuid = var.user_uuid
-    
+  index_html_filepath = var.index_html_filepath
+  error_html_filepath = var.error_html_filepath
 }
 
 
