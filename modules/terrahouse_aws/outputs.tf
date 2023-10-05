@@ -3,18 +3,15 @@ output "bucket_name" {
     
 }
 
-output "aws_s3_bucket_website_endpoint" {
-  value = aws_s3_bucket_website_configuration.conf.website_endpoint
-}
-
-output "account_id" {
-  value = data.aws_caller_identity.current.account_id
-}
+#output "aws_s3_bucket_website_endpoint" {
+#  value = aws_s3_bucket_website_configuration.conf.website_endpoint
+#}
+#
 
 output "aws_cloudfront_distribution" {
   value = aws_cloudfront_distribution.s3_distribution.id
 }
 
-output "aws_cloudfront_distribution_arn" {
-  value = aws_cloudfront_distribution.s3_distribution.arn
-}
+#output "aws_cloudfront_distribution_arn" {
+#  value = aws_cloudfront_distribution.s3_distribution.arn
+#}
