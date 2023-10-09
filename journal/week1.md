@@ -1,4 +1,4 @@
-# Terraform Beginner Bootcamp 2023 - Week 1
+
 # Terraform Beginner Bootcamp 2023 - Week 1
 
 ## Fixing Tags
@@ -45,8 +45,8 @@ PROJECT_ROOT
 
 ### Terraform Cloud Variables
 
-In terraform we can set two kind of variables:
-- Enviroment Variables - those you would set in your bash terminal eg. AWS credentials
+In terraform we can set two kinds of variables:
+- Environment Variables - those you would set in your bash terminal eg. AWS credentials
 - Terraform Variables - those that you would normally set in your tfvars file
 
 We can set Terraform Cloud variables to be sensitive so they are not shown visibliy in the UI.
@@ -264,7 +264,7 @@ output "account_id" {
 
 ### Working with JSON
 
-We could use the jsonencode to create the json policy inline in the hcl.
+We could use the JSON encode to create the JSON policy inline in the hcl.
 
 ```tf
 > jsonencode({"hello"="world"})
@@ -282,3 +282,17 @@ Also we can use iam_policy_document as data sources
 ### Web-Site config
 
 Also with CDN we do not need enabled website hosting settings for S3 bucket.
+
+## Tag 1.5.0
+
+### Changing the Lifecycle of Resources
+
+[Meta Arguments Lifcycle](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle)
+
+## Terraform Data
+
+The terraform_data implements the standard resource lifecycle, but does not directly take any other actions. You can use the terraform_data resource without requiring or configuring a provider. 
+The terraform_data resource is useful for storing values which need to follow a manage resource lifecycle, and for triggering provisioners when there is no other logical managed resource in which to place them.
+
+[ Terraform Data](https://developer.hashicorp.com/terraform/language/resources/terraform-data)
+
