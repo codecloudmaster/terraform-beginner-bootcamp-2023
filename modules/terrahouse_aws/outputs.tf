@@ -12,6 +12,7 @@ output "aws_cloudfront_distribution" {
   value = aws_cloudfront_distribution.s3_distribution.id
 }
 
+
 #output "aws_cloudfront_distribution_arn" {
 #  value = aws_cloudfront_distribution.s3_distribution.arn
 #}

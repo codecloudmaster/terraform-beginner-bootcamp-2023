@@ -24,4 +24,5 @@ module "terrahouse_aws" {
   user_uuid = var.user_uuid
   index_html_filepath = var.index_html_filepath
   error_html_filepath = var.error_html_filepath
+  content_version = var.content_version
 }
