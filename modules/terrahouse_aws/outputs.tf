@@ -12,6 +12,9 @@ output "aws_cloudfront_distribution" {
   value = aws_cloudfront_distribution.s3_distribution.id
 }
 
+output "cloudfront_url" {
+  value = aws_cloudfront_distribution.s3_distribution.domain_name
+}
 
 #output "aws_cloudfront_distribution_arn" {
 #  value = aws_cloudfront_distribution.s3_distribution.arn

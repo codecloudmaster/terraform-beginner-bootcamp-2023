@@ -14,6 +14,11 @@ output "aws_cloudfront_distribution" {
   value = module.terrahouse_aws.aws_cloudfront_distribution
 }
 
+output "cloudfront_url" {
+  description = "The CloudFront Distribution Domain Name"
+  value = module.terrahouse_aws.cloudfront_url
+}
+
 #output "aws_cloudfront_distribution_arn" {
 #  value = module.terrahouse_aws.aws_cloudfront_distribution_arn
 #}
