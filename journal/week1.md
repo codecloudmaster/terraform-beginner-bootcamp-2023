@@ -365,3 +365,6 @@ In our case and on this tag we go throw public/assets/
 `for_each = fileset("${var.assets_path}", "*.{jpg,png,gif}")`
 
 [For Each Expressions](https://developer.hashicorp.com/terraform/language/meta-arguments/for_each)
+
+## Tag 1.7.0
+Just added another extension for git-graph to gitpod.yml file.
