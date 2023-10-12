@@ -3,3 +3,4 @@ s3_bucket_name = "moadfdge3oz9qsdgspjl6ptnmlspqib1"
 error_html_filepath = "public/error.html"
 index_html_filepath = "public/index.html"
 content_version = 6
+assets_path="/workspace/terraform-beginner-bootcamp-2023/public/assets"
