@@ -350,3 +350,18 @@ https://developer.hashicorp.com/terraform/language/resources/provisioners/remote
 
 First we (I) deployed local-exec provisioner in s3 object resource, but it is better to implement it as `terraform_data` resource 
 with trigger - when content version changed.
+
+## Tag 1.6.0
+### For Each Expressions
+
+For each allows us to enumerate over complex data types
+
+```sh
+[for s in var.list : upper(s)]
+```
+
+This is mostly useful when you are creating multiples of a cloud resource and you want to reduce the amount of repetitive terraform code.
+In our case and on this tag we go throw public/assets/
+`for_each = fileset("${var.assets_path}", "*.{jpg,png,gif}")`
+
+[For Each Expressions](https://developer.hashicorp.com/terraform/language/meta-arguments/for_each)
