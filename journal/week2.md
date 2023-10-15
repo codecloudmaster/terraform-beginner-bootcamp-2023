@@ -41,7 +41,8 @@ You can create a web-server in a single file.
 
 https://sinatrarb.com/
 
-## Terratowns Mock Server
+## Tag 2.0.0
+### Terratowns Mock Server
 
 ### Running the web server
 
@@ -53,3 +54,24 @@ bundle exec ruby server.rb
 ```
 
 All of the code for our server is stored in the `server.rb` file.
+
+## Tag 2.1.0 - 2.2.0
+
+We created custom provider on Go and added it to tf config. As an endpoint we add our Mock server on Ruby? that we implemented before.
+```
+required_providers {
+    
+    terratowns = {
+      source = "local.providers/local/terratowns"
+      version = "1.0.0"
+    }
+...
+    provider "terratowns" {
+    endpoint = "http://localhost:4567"
+    user_uuid="e328f4ab-b99f-421c-84c9-4ccea042c7d1" 
+    token="9b49b3fb-b8e9-483c-b703-97ba88eef8e0"
+  
+}
+```
+
+Note, that if our tf state file on terraform.io we need to set our workspace settings to local to avoid errors with access from remote to our custom local providers.
