@@ -3,11 +3,6 @@ output "bucket_name" {
     value = module.terrahouse_aws.bucket_name  
 }
 
-#output "aws_s3_bucket_website_endpoint" {
-#    description = "website endpoint"
-#    value = module.terrahouse_aws.aws_s3_bucket_website_endpoint
-#}
-
 
 output "aws_cloudfront_distribution" {
   description = "CDN distribution ID"
@@ -19,7 +14,4 @@ output "cloudfront_url" {
   value = module.terrahouse_aws.cloudfront_url
 }
 
-#output "aws_cloudfront_distribution_arn" {
-#  value = module.terrahouse_aws.aws_cloudfront_distribution_arn
-#}
 
