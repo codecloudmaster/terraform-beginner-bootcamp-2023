@@ -75,3 +75,12 @@ required_providers {
 ```
 
 Note, that if our tf state file on terraform.io we need to set our workspace settings to local to avoid errors with access from remote to our custom local providers.
+
+## Tag 2.3.0 
+### CRUD
+
+Terraform Provider resources utilize CRUD.
+
+CRUD stands for Create, Read Update, and Delete
+
+https://en.wikipedia.org/wiki/Create,_read,_update_and_delete
