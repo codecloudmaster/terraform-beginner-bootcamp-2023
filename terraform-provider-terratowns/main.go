@@ -6,11 +6,14 @@ import (
 	"context"
 	"log"
 	"fmt"
+<<<<<<< HEAD
 	"encoding/json"
 	"net/http"
 	"bytes"
 
 
+=======
+>>>>>>> main
 	"github.com/google/uuid"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
@@ -182,6 +185,7 @@ func resourceHouseCreate(ctx context.Context, d *schema.ResourceData, m interfac
 func resourceHouseRead(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
 	log.Print("resourceHouseRead:start")
 	var diags diag.Diagnostics
+<<<<<<< HEAD
 	config := m.(*Config)
     homeUUID := d.Id()
 	// Construct the HTTP Request
@@ -222,6 +226,8 @@ func resourceHouseRead(ctx context.Context, d *schema.ResourceData, m interface{
 	}
 
 
+=======
+>>>>>>> main
 	log.Print("resourceHouseRead:end")
 	return diags
 }
@@ -229,6 +235,7 @@ func resourceHouseRead(ctx context.Context, d *schema.ResourceData, m interface{
 func resourceHouseUpdate(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
 	log.Print("resourceHouseUpdate:start")
 	var diags diag.Diagnostics
+<<<<<<< HEAD
 	config := m.(*Config)
 	homeUUID := d.Id()
 
@@ -273,6 +280,9 @@ func resourceHouseUpdate(ctx context.Context, d *schema.ResourceData, m interfac
 	req, err := http.NewRequest("DELETE", url , nil)
 	d.Set("description", payload["description"])
 	d.Set("content_version", payload["content_version"])
+=======
+	log.Print("resourceHouseUpdate:end")
+>>>>>>> main
 	return diags
 
 }
@@ -280,6 +290,7 @@ func resourceHouseUpdate(ctx context.Context, d *schema.ResourceData, m interfac
 func resourceHouseDelete(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
 	log.Print("resourceHouseDelete:start")
 	var diags diag.Diagnostics
+<<<<<<< HEAD
 	config := m.(*Config)
     
 
@@ -309,6 +320,8 @@ func resourceHouseDelete(ctx context.Context, d *schema.ResourceData, m interfac
 
 	d.SetId("") 	
 	
+=======
+>>>>>>> main
 	log.Print("resourceHouseDelete:end")
 	return diags
 }
