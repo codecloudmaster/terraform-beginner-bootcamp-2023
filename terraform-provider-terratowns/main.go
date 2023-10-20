@@ -87,7 +87,7 @@ func providerConfigure(p *schema.Provider) schema.ConfigureContextFunc {
 		log.Print("providerConfigure:end")
 		return &config, nil
 	}
-}t --soft HEAD~1
+}
 
 func Resource() *schema.Resource {
 	log.Print("Resource:start")
