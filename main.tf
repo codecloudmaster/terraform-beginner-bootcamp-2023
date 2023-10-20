@@ -7,7 +7,7 @@ moved {
   module "terrahouse_aws" {
 	source = "./modules/terrahouse_aws"
 	s3_bucket_name = var.s3_bucket_name
-	user_uuid = var.user_uuid
+	user_uuid = var.teacherseat_user_uuid
 	index_html_filepath = var.index_html_filepath
 	error_html_filepath = var.error_html_filepath
 	content_version = var.content_version
@@ -23,9 +23,9 @@ moved {
 	to play (despite that old look graphics). This is my guide that will
 	show you how to play arcanum without spoiling the plot.
 	DESCRIPTION
-    domain_name = "asdasd.cloudfront.net"
-	#domain_name = module.terrahouse_aws.cloudfront_url
-	town = "gamers-grotto"
+    #domain_name = "asdasd.cloudfront.net"
+	domain_name = module.terrahouse_aws.cloudfront_url
+	town = "missingo"
 	content_version = 1 
   }
   
