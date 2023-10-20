@@ -12,9 +12,6 @@ import (
 	"fmt"
 	"encoding/json"
 	"net/http"
-	"bytes"
-
-
 	"github.com/google/uuid"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
@@ -195,7 +192,6 @@ func resourceHouseCreate(ctx context.Context, d *schema.ResourceData, m interfac
 func resourceHouseRead(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
 	log.Print("resourceHouseRead:start")
 	var diags diag.Diagnostics
-
 	config := m.(*Config)
 
 	homeUUID := d.Id()
@@ -237,6 +233,7 @@ func resourceHouseRead(ctx context.Context, d *schema.ResourceData, m interface{
 		return diag.FromErr(fmt.Errorf("failed to read home resource, status_code: %d, status: %s, body %s", resp.StatusCode, resp.Status, responseData))
 	}
 
+
 	log.Print("resourceHouseRead:end")
 
 	return diags
@@ -245,7 +242,6 @@ func resourceHouseRead(ctx context.Context, d *schema.ResourceData, m interface{
 func resourceHouseUpdate(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
 	log.Print("resourceHouseUpdate:start")
 	var diags diag.Diagnostics
-
 	config := m.(*Config)
 
 	homeUUID := d.Id()
@@ -613,17 +609,19 @@ func resourceHouseUpdate(ctx context.Context, d *schema.ResourceData, m interfac
 	}
 
 	log.Print("resourceHouseUpdate:end")
-
-	d.Set("name",payload["name"])
-	d.Set("description",payload["description"])
-	d.Set("content_version",payload["content_version"])
+	d.Set("name", payload["name"])
+	// Construct the HTTP Request
+	url :=  config.Endpoint+"/u/"+config.UserUuid+"/homes/"+homeUUID
+	log.Print("URL: "+ url)
+	req, err := http.NewRequest("DELETE", url , nil)
+	d.Set("description", payload["description"])
+	d.Set("content_version", payload["content_version"])
 	return diags
 }
 
 func resourceHouseDelete(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
 	log.Print("resourceHouseDelete:start")
 	var diags diag.Diagnostics
-
 	config := m.(*Config)
 
 	homeUUID := d.Id()
@@ -653,8 +651,8 @@ func resourceHouseDelete(ctx context.Context, d *schema.ResourceData, m interfac
 		return diag.FromErr(fmt.Errorf("failed to delete home resource, status_code: %d, status: %s", resp.StatusCode, resp.Status))
 	}
 
-	d.SetId("")
-
+	d.SetId("") 	
+	
 	log.Print("resourceHouseDelete:end")
 	return diags
 }
