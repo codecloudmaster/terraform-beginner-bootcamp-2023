@@ -1,31 +1,27 @@
 
-moved {
-	from = aws_s3_bucket.website_bucket
-	to   = module.terrahouse_aws.aws_s3_bucket.website_bucket
-  }
+#moved {
+#	from = aws_s3_bucket.website_bucket
+#	to   = module.terrahouse_aws.aws_s3_bucket.website_bucket
+#  }
   
-  module "terrahouse_aws" {
-	source = "./modules/terrahouse_aws"
-	s3_bucket_name = var.s3_bucket_name
+  module "terrahome_aws" {
+	source = "./modules/terrahome_aws"
+	for_each = local.homes_path_aws
+	public_path = each.value.public_path
+	#s3_bucket_name = var.s3_bucket_name
 	user_uuid = var.teacherseat_user_uuid
-	index_html_filepath = var.index_html_filepath
-	error_html_filepath = var.error_html_filepath
-	content_version = var.content_version
-	assets_path = var.assets_path
+	#index_html_filepath = each.value.public_path/index.html
+	#error_html_filepath = var.error_html_filepath
+	content_version = each.value.content_version
   }
   
 
   resource "terratowns_home" "home" {
-	name = "How to play Arcnanum in 2023"
-	description = <<DESCRIPTION
-	Arcanum is a game from 2001 that shipped with alot of bugs. 
-	Modders have removed all the originals making this game really fun 
-	to play (despite that old look graphics). This is my guide that will
-	show you how to play arcanum without spoiling the plot.
-	DESCRIPTION
-    #domain_name = "asdasd.cloudfront.net"
-	domain_name = module.terrahouse_aws.cloudfront_url
-	town = "missingo"
-	content_version = 1 
+	for_each = local.homes
+	name = each.value.name
+	description = each.value.description
+	domain_name = each.value.domain_name
+	town = each.value.town
+	content_version = each.value.content_version
   }
   
