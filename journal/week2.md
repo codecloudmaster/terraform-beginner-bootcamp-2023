@@ -114,4 +114,17 @@ In the public directory we have subdirectorie for homes in terratown which consi
 - error.html
 - /assets
 
-ALl top level files in assets will be copied, but not any subdirectories.
+All top level files in assets will be copied, but not any subdirectories.
+
+### Working with git
+How to merge main branch to current:
+```bash
+git branch  # Lists all branches, and the current branch is highlighted.
+git checkout branch-name   # Switch to the desired branch.
+git fetch origin # Fetch changes from the remote repository (usually named 'origin').
+git merge main   # Merge the main branch into your current branch.
+git commit -m "Merge main branch into current branch"
+git push origin branch-name  # Replace 'branch-name' with your current branch.
+
+
+```
