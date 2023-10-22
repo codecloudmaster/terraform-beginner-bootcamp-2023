@@ -1,6 +1,1 @@
-#s3_bucket_name = "moadfdge3oz9qsdgspjl6ptnmlspqib1"
-error_html_filepath = "error.html"
-index_html_filepath = "index.html"
-content_version = 6
-#assets_path="/workspace/terraform-beginner-bootcamp-2023/public/assets"
-terratowns_endpoints = "https://terratowns.cloud/api/"
+terratowns_endpoint = "https://terratowns.cloud/api/"

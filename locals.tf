@@ -22,11 +22,11 @@ locals {
          home_video_home = {
             name = "Four rooms"
 	        description = <<DESCRIPTION
-	        One of the best movies by Tarantino
+	        One of the best movies by Kventin Tarantino
 	        DESCRIPTION
             domain_name = module.terrahome_aws["home_video_home_path"].cloudfront_url
 	        town = "video-valley"
-	        content_version = 1 
+	        content_version = 2 
         } 
     }
 }

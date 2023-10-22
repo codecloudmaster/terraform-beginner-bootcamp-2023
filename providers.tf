@@ -32,9 +32,3 @@ provider "terratowns" {
 }
 
 
-#provider "aws" {
-#  # Configuration options
-#}
-
-
-

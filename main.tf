@@ -8,10 +8,7 @@
 	source = "./modules/terrahome_aws"
 	for_each = local.homes_path_aws
 	public_path = each.value.public_path
-	#s3_bucket_name = var.s3_bucket_name
 	user_uuid = var.teacherseat_user_uuid
-	#index_html_filepath = each.value.public_path/index.html
-	#error_html_filepath = var.error_html_filepath
 	content_version = each.value.content_version
   }
   

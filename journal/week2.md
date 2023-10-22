@@ -85,6 +85,33 @@ CRUD stands for Create, Read Update, and Delete
 
 https://en.wikipedia.org/wiki/Create,_read,_update_and_delete
 
-### Tag 2.6.0
-#### To do:
-- [ ] add description maybe.
+### Tag 2.4.0-2.6.0
+
+We tested upload to the productions server on terratowns.cloud
+And created possibility for multihome uploads using `locals` and `for_each` fucnctions in TF
+
+```tf
+module "terrahome_aws" {
+	source = "./modules/terrahome_aws"
+	for_each = local.homes_path_aws
+	public_path = each.value.public_path
+	user_uuid = var.teacherseat_user_uuid
+	content_version = each.value.content_version
+  }
+  
+
+  resource "terratowns_home" "home" {
+	for_each = local.homes
+	name = each.value.name
+	description = each.value.description
+	domain_name = each.value.domain_name
+	town = each.value.town
+	content_version = each.value.content_version
+```
+
+In the public directory we have subdirectorie for homes in terratown which consist of the following:
+- index.html
+- error.html
+- /assets
+
+ALl top level files in assets will be copied, but not any subdirectories.
