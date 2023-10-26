@@ -13,7 +13,7 @@
     + [Custom provider on Go language](#custom-provider-on-go-language)
   * [Tag 2.3.0](#tag-230)
     + [CRUD](#crud)
-  * [Tag 2.4.0-2.6.0](#tag-240-260)
+  * [Tag 2.4.0-2.6.0](#tag-240-260-final)
     + [Working with git](#working-with-git)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
