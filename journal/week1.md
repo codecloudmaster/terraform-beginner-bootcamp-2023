@@ -1,3 +1,54 @@
+# Terraform Beginner Bootcamp 2023 - Week 1
+
+- [Terraform Beginner Bootcamp 2023 - Week 1](#terraform-beginner-bootcamp-2023---week-1)
+  * [Fixing Tags](#fixing-tags)
+  * [Root Module Structure](#root-module-structure)
+    + [Terraform Cloud Variables](#terraform-cloud-variables)
+    + [Loading Terraform Input Variables](#loading-terraform-input-variables)
+    + [var flag](#var-flag)
+    + [var-file flag](#var-file-flag)
+    + [terraform.tvfars](#terraformtvfars)
+    + [auto.tfvars](#autotfvars)
+    + [order of terraform variables](#order-of-terraform-variables)
+  * [What happens if we lose our state file?](#what-happens-if-we-lose-our-state-file-)
+    + [Fix Missing Resources with Terraform Import](#fix-missing-resources-with-terraform-import)
+    + [Remove a Resource from Terraform State](#remove-a-resource-from-terraform-state)
+      - [Step 1: Identify the Resource Address](#step-1--identify-the-resource-address)
+      - [Step 2: Remove the Resource from Terraform State](#step-2--remove-the-resource-from-terraform-state)
+      - [Step 3: Update Terraform Configuration](#step-3--update-terraform-configuration)
+      - [Step 4: Apply the Changes](#step-4--apply-the-changes)
+    + [Fix Manual Configuration](#fix-manual-configuration)
+  * [Fix using Terraform Refresh](#fix-using-terraform-refresh)
+  * [Terraform Modules](#terraform-modules)
+    + [Terraform Module Structure](#terraform-module-structure)
+    + [Passing Input Variables](#passing-input-variables)
+    + [Modules Sources](#modules-sources)
+    + [Module Refactoring.](#module-refactoring)
+  * [Considerations when using ChatGPT to write Terraform](#considerations-when-using-chatgpt-to-write-terraform)
+  * [Working with Files in Terraform](#working-with-files-in-terraform)
+    + [Fileexists function](#fileexists-function)
+    + [Filemd5](#filemd5)
+    + [Path Variable](#path-variable)
+  * [Tag 1.4.1 - 1.4.2](#tag-141---142)
+    + [Terraform Locals](#terraform-locals)
+    + [Terraform Data Sources](#terraform-data-sources)
+    + [Working with JSON](#working-with-json)
+    + [IAM Policy](#iam-policy)
+    + [Web-Site config](#web-site-config)
+  * [Tag 1.5.0](#tag-150)
+    + [Changing the Lifecycle of Resources](#changing-the-lifecycle-of-resources)
+  * [Terraform Data](#terraform-data)
+  * [Tag 1.5.1](#tag-151)
+  * [Provisioners](#provisioners)
+    + [[Local-exec](https://developer.hashicorp.com/terraform/language/resources/provisioners/local-exec)](#-local-exec--https---developerhashicorpcom-terraform-language-resources-provisioners-local-exec-)
+    + [Remote-exec](#remote-exec)
+  * [Tag 1.6.0](#tag-160)
+    + [For Each Expressions](#for-each-expressions)
+  * [Tag 1.7.0](#tag-170)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
 
 # Terraform Beginner Bootcamp 2023 - Week 1
 
@@ -234,7 +285,7 @@ resource "aws_s3_object" "index_html" {
 }
 
 ## Tag 1.4.1 - 1.4.2
-
+`From now I decided to create paragraphs in relation to tags in the project.`
 ### Terraform Locals
 
 Locals allows us to define local variables.

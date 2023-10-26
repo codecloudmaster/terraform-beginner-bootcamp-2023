@@ -41,7 +41,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
         forward = "none"
       }
     }
-    #price_class = "PriceClass_200"
+    
     
     viewer_protocol_policy = "allow-all"
     min_ttl                = 0
@@ -68,9 +68,8 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 }
 
 resource "terraform_data" "invalidate_cache" {
-  triggers_replace = terraform_data.content_version.output
-  
-  
+  triggers_replace = [terraform_data.content_version.output]
+    
   provisioner "local-exec" {
     command = "aws cloudfront create-invalidation --distribution-id ${aws_cloudfront_distribution.s3_distribution.id} --paths '/*'"
   }

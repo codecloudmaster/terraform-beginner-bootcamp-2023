@@ -2,22 +2,22 @@ locals {
     homes_path_aws = {
         home_music_home_path = {
             public_path = "/workspace/terraform-beginner-bootcamp-2023/public/music_home"
-        content_version = 1
+        content_version = 2
         }
         home_video_home_path = {
             public_path = "/workspace/terraform-beginner-bootcamp-2023/public/video_home"
-        content_version = 1
+        content_version = 3
         }
     }
     homes = {
         home_music_home = {
-            name = "Glory for Ukraine"
+            name = "ANTYTILA - Bakhmut Fortress"
 	        description = <<DESCRIPTION
 	        There is no comments needed...
 	        DESCRIPTION
             domain_name = module.terrahome_aws["home_music_home_path"].cloudfront_url
 	        town = "melomaniac-mansion"
-	        content_version = 1 
+	        content_version = 3 
         } 
          home_video_home = {
             name = "Four rooms"
