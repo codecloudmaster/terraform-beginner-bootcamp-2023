@@ -41,7 +41,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
         forward = "none"
       }
     }
-    #price_class = "PriceClass_200"
+    
     
     viewer_protocol_policy = "allow-all"
     min_ttl                = 0

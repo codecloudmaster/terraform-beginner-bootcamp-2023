@@ -1,8 +1,29 @@
 # Terraform Beginner Bootcamp 2023 - Week 2
 
+- [Terraform Beginner Bootcamp 2023 - Week 2](#terraform-beginner-bootcamp-2023---week-2)
+  * [Working with Ruby](#working-with-ruby)
+    + [Bundler](#bundler)
+      - [Install Gems](#install-gems)
+      - [Executing ruby scripts in the context of bundler](#executing-ruby-scripts-in-the-context-of-bundler)
+    + [Sinatra](#sinatra)
+  * [Tag 2.0.0](#tag-200)
+    + [Terratowns Mock Server](#terratowns-mock-server)
+    + [Running the web server](#running-the-web-server)
+  * [Tag 2.1.0 - 2.2.0](#tag-210---220)
+    + [Custom provider on Go language](#custom-provider-on-go-language)
+  * [Tag 2.3.0](#tag-230)
+    + [CRUD](#crud)
+  * [Tag 2.4.0-2.6.0](#tag-240-260)
+    + [Working with git](#working-with-git)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
+# Terraform Beginner Bootcamp 2023 - Week 2
+
 ## Working with Ruby
 
-### Bundler
+### Bundler`From now I decided to create paragraphs in relation to tags in the project.`
 
 Bundler is a package manager for runy.
 It is the primary way to install ruby packages (known as gems) for ruby.
@@ -42,6 +63,7 @@ You can create a web-server in a single file.
 https://sinatrarb.com/
 
 ## Tag 2.0.0
+`Tag 1.8.0-1.9.0 missing because I decided to skip them to be on the same tag with original project/bootcamp.`
 ### Terratowns Mock Server
 
 ### Running the web server
@@ -56,7 +78,7 @@ bundle exec ruby server.rb
 All of the code for our server is stored in the `server.rb` file.
 
 ## Tag 2.1.0 - 2.2.0
-
+### Custom provider on Go language
 We created custom provider on Go and added it to tf config. As an endpoint we add our Mock server on Ruby? that we implemented before.
 ```
 required_providers {
@@ -85,9 +107,10 @@ CRUD stands for Create, Read Update, and Delete
 
 https://en.wikipedia.org/wiki/Create,_read,_update_and_delete
 
-### Tag 2.4.0-2.6.0
+## Tag 2.4.0-2.6.0 Final
 
-We tested upload to the productions server on terratowns.cloud
+
+We tested upload to the productions server on http://terratowns.cloud
 And created possibility for multihome uploads using `locals` and `for_each` fucnctions in TF
 
 ```tf
@@ -107,6 +130,7 @@ module "terrahome_aws" {
 	domain_name = each.value.domain_name
 	town = each.value.town
 	content_version = each.value.content_version
+  }
 ```
 
 In the public directory we have subdirectorie for homes in terratown which consist of the following:
@@ -114,12 +138,12 @@ In the public directory we have subdirectorie for homes in terratown which consi
 - error.html
 - /assets
 
-All top level files in assets will be copied, but not any subdirectories.
+All top level files in `assets` will be copied, but not any subdirectories.
 
 ### Working with git
 How to merge main branch to current:
 ```bash
-git branch  # Lists all branches, and the current branch is highlighted.
+git branch -a  # Lists all local and remote branches, and the current branch is highlighted.
 git checkout branch-name   # Switch to the desired branch.
 git fetch origin # Fetch changes from the remote repository (usually named 'origin').
 git merge main   # Merge the main branch into your current branch.
